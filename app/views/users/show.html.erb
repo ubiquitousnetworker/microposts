@@ -1,4 +1,19 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
+<h1>My profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= gravatar_for @user %>
+      <br>
+      
+      <%= f.label :name %>
+      <%= @user.name %><br>
+
+      <%= f.label :profile %>
+      <%= @user.profile %><br>
+      
+      <%= f.label :region %>
+      <%= @user.region %><br>
+    <% end %>
+  </div>
+</div>
