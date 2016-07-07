@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
   
   def new
@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
   
   def show # 追加
-    # @user = User.find(params[:id])
   end
   
   def create
@@ -21,12 +20,9 @@ class UsersController < ApplicationController
   end
   
   def edit
-    # @user = User.find(params[:id])
   end
   
   def update
-    # @user = User.find(params[:id])
-    
     if @user.update(user_params)
       # 保存に成功した場合はトップページへリダイレクト
       redirect_to root_path , notice: 'Updated your profile'
@@ -46,11 +42,11 @@ class UsersController < ApplicationController
   # beforeフィルター
   
   def correct_user
-    find_user
+    set_user
     redirect_to root_path if @user != current_user
   end
   
-  def find_user
+  def set_user
       @user = User.find(params[:id])
   end
   
