@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
     allow_nil: true
   validates :profile, presence: true, length: { maximum: 256 }
   validates :region, presence: true, length: { maximum: 128 }
+  
+  has_many :microposts
 end
