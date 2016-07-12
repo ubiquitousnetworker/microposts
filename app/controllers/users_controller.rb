@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :followers, :followings]
+  before_action :logged_in_user, only: [:show]
+  before_action :correct_user, only: [:edit, :update]
   
   def new
       @user = User.new
@@ -33,6 +34,18 @@ class UsersController < ApplicationController
     end
   end
   
+  def followings
+    @title = 'followings'
+    @users = @user.following_users
+    render 'show_follow'
+  end
+  
+  def followers
+    @title = 'followers'
+    @users = @user.follower_users
+    render 'show_follow'
+  end
+  
   private
   
   def user_params
@@ -43,7 +56,6 @@ class UsersController < ApplicationController
   # beforeフィルター
   
   def correct_user
-    set_user
     redirect_to root_path if @user != current_user
   end
   
