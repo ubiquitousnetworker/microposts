@@ -153,7 +153,7 @@ aside {
     border-top: 1px solid #e8e8e8;
   }
   .user {
-    margin-top: 5em;
+    margin-top: 500em;
     padding-top: 0;
   }
   .content {
@@ -187,5 +187,15 @@ span.picture {
   margin-top: 10px;
   input {
     border: 0;
+  }
+}
+
+.show_follow {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    margin-bottom: 25px;
+    border-top: 1px solid #e8e8e8;
   }
 }
