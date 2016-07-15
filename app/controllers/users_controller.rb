@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @microposts = @user.microposts.order(created_at: :desc)
+    @microposts = @user.microposts.order(created_at: :desc).page(params[:page])
   end
   
   def create
@@ -36,13 +36,13 @@ class UsersController < ApplicationController
   
   def followings
     @title = 'followings'
-    @users = @user.following_users
+    @users = @user.following_users.page(params[:page])
     render 'show_follow'
   end
   
   def followers
     @title = 'followers'
-    @users = @user.follower_users
+    @users = @user.follower_users.page(params[:page])
     render 'show_follow'
   end
   
