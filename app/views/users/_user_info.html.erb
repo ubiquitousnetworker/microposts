@@ -3,8 +3,5 @@
     <%= gravatar_for @user %>
     <%= @user.name %>
   </h1>
-  <ul>
-    <li><%= link_to 'followings', followings_user_path(@user), class: "btn btn-primary btn-xs" %></li>
-    <li><%= link_to 'followers', followers_user_path(@user), class: "btn btn-primary btn-xs" %></li>
-  </ul>
-</section>
+  <%= link_to 'followings', followings_user_path(@user), class: "btn btn-primary btn-xs" %>
+  <%= link_to 'followers', followers_user_path(@user), class: "btn btn-primary btn-xs" %>
